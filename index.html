@@ -15,6 +15,8 @@
     <div style="float: right;">
         <h1>Code</h1>
         <p id="code"></p>
+        <input type="text" id="url">
+        <button onclick="updateUrl()">Update Image</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.0/lib/p5.js"></script>
     <script>
@@ -24,13 +26,16 @@ var p1, p2, c;
 var detail = 10;
 var backgroundImage;
 var segmentCount = 10;
+function updateUrl() {
+    backgroundImage = loadImage(document.getElementById('url').value);
+}
 document.addEventListener('contextmenu', event => event.preventDefault());
 function setup() {
     createCanvas(700,700);
     stroke(255,0,0);
     p1 = createVector(width/2+50, height/2);
     p2 = createVector(width/2-50, height/2);
-    backgroundImage = loadImage('dog.png');
+    backgroundImage = loadImage('https://www.nicepng.com/png/full/220-2207191_clip-free-stock-drawing-rock-detailed-pokemon-umbreon.png');
 }
 function draw() {
     c = createVector(mouseX, mouseY);
